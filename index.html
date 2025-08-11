@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>شرح لعبة التخمين للأطفال</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e8f4f8 0%, #d1ecf1 100%);
+      color: #2c3e50;
+      line-height: 1.8;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      animation: slideIn 1s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    h1 {
+      color: #2c5282;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: titlePulse 3s ease-in-out infinite;
+    }
+    
+    .emoji {
+      font-size: 1.3em;
+      margin: 0 8px;
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes titlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    h2 {
+      color: #2d5a87;
+      margin: 25px 0 15px 0;
+      font-size: 1.8em;
+      border-right: 4px solid #4a90a4;
+      padding-right: 15px;
+      animation: slideFromRight 0.8s ease-out;
+    }
+    
+    h3 {
+      color: #1a5f7a;
+      margin: 20px 0 10px 0;
+      font-size: 1.5em;
+    }
+    
+    p {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+    
+    pre {
+      background: linear-gradient(45deg, #2c3e50, #34495e);
+      color: #ecf0f1;
+      padding: 20px;
+      border-radius: 15px;
+      overflow-x: auto;
+      direction: ltr;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid #4a90a4;
+      position: relative;
+      animation: codeGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes codeGlow {
+      from { box-shadow: 0 10px 20px rgba(74, 144, 164, 0.2); }
+      to { box-shadow: 0 10px 30px rgba(74, 144, 164, 0.4); }
+    }
+    
+    pre::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 1.1em;
+    }
+    
+    .line {
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 15px 0;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .line::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s;
+    }
+    
+    .line:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: #4a90a4;
+    }
+    
+    .line:hover::before {
+      left: 100%;
+    }
+    
+    .line b {
+      color: #2d5a87;
+      font-size: 1.1em;
+    }
+    
+    .line code {
+      background: #ecf0f1;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      color: #2c3e50;
+      direction: ltr;
+      display: inline-block;
+      margin: 0 5px;
+    }
+    
+    .tasks, .final-code {
+      margin-top: 40px;
+      animation: slideInUp 1s ease-out;
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .task {
+      background: linear-gradient(135deg, #e8f8f5, #d5f4e6);
+      border: 2px solid #48bb78;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 10px 0;
+      transition: all 0.3s ease;
+      animation: bounceIn 0.8s ease-out;
+    }
+    
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .solution {
+      background: linear-gradient(135deg, #fef5e7, #f6e6cc);
+      border: 2px solid #d69e2e;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 10px 0;
+      animation: slideIn 0.8s ease-out;
+    }
+    
+    button {
+      padding: 15px 30px;
+      margin: 20px auto;
+      display: block;
+      border: none;
+      background: linear-gradient(135deg, #4a90a4, #2d5a87);
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.2em;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(74, 144, 164, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    button:hover {
+      background: linear-gradient(135deg, #2d5a87, #4a90a4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(74, 144, 164, 0.6);
+      animation: buttonPulse 0.6s ease-in-out;
+    }
+    
+    @keyframes buttonPulse {
+      0% { transform: translateY(-3px) scale(1); }
+      50% { transform: translateY(-3px) scale(1.05); }
+      100% { transform: translateY(-3px) scale(1); }
+    }
+    
+    .emoji {
+      font-size: 1.3em;
+      margin: 0 8px;
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-6px);
+      }
+      60% {
+        transform: translateY(-3px);
+      }
+    }
+    
+    .number-highlight {
+      background: linear-gradient(45deg, #4a90a4, #2d5a87);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    
+    .intro-text {
+      background: linear-gradient(135deg, #4a90a4, #2d5a87);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 1.1em;
+      box-shadow: 0 10px 20px rgba(74, 144, 164, 0.3);
+    }
+    
+    /* تأثيرات خاصة للنصوص */
+    .highlight {
+      background: linear-gradient(45deg, #e2f2f5, #bee3e8);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    
+    /* تأثيرات التمرير */
+    .scroll-animate {
+      opacity: 0;
+      animation: scrollFade 1s ease-out forwards;
+    }
+    
+    @keyframes scrollFade {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><span class="emoji">🎯</span> شرح لعبة التخمين  <span class="emoji">🎮</span></h1>
+    
+    <div class="intro-text">
+      <p>هنا هنشرح الكود خطوة خطوة أولاً، وبعدها في قسم منفصل هنضع كل التمارين والحلول، وفي الآخر هتشوف الكود النهائي وتقدر تلعب اللعبة بنفسك! <span class="emoji">🚀</span></p>
+    </div>
+
+    <h3><span class="emoji"></span> الكود الأصلي</h3>
+    <pre>print("🎯 Welcome to the Guessing Game!")
+secret_number = 7
+
+guess = int(input("Guess a number between 1 and 10: "))
+
+if guess == secret_number:
+    print("🎉 Wow! You guessed it right!")
+elif guess > secret_number:
+    print("Too high! Try a smaller number.")
+else:
+    print("Too low! Try a bigger number.")</pre>
+
+    <div class="line">
+      <b>السطر <span class="number-highlight">1</span>:</b> <code>print("🎯 Welcome to the Guessing Game!")</code>
+      <p>يطبع <span class="highlight">رسالة ترحيب</span> للاعب باللغة الإنجليزية.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">2</span>:</b> <code>secret_number = 7</code>
+      <p>يحفظ <span class="highlight">الرقم السري</span> الذي يجب على اللاعب تخمينه.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">3</span>:</b> <code>guess = int(input("Guess a number between 1 and 10: "))</code>
+      <p>يطلب من اللاعب <span class="highlight">إدخال رقم</span> بين 1 و 10، ويحوله إلى عدد صحيح.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">4</span>:</b> <code>if guess == secret_number:</code>
+      <p>يتأكد إذا كان الرقم الذي أدخله اللاعب <span class="highlight">يساوي الرقم السري</span>.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">5</span>:</b> <code>print("🎉 Wow! You guessed it right!")</code>
+      <p>يطبع <span class="highlight">رسالة الفوز</span> إذا التخمين صحيح.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">6</span>:</b> <code>elif guess > secret_number:</code>
+      <p>يتأكد إذا الرقم الذي أدخله اللاعب <span class="highlight">أكبر من الرقم السري</span>.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">7</span>:</b> <code>print("Too high! Try a smaller number.")</code>
+      <p>يطبع رسالة تقول أن <span class="highlight">الرقم كبير جداً</span>.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">8</span>:</b> <code>else:</code>
+      <p>ينفذ إذا كان الرقم <span class="highlight">أصغر من الرقم السري</span>.</p>
+    </div>
+    
+    <div class="line">
+      <b>السطر <span class="number-highlight">9</span>:</b> <code>print("Too low! Try a bigger number.")</code>
+      <p>يطبع رسالة تقول أن <span class="highlight">الرقم صغير جداً</span>.</p>
+    </div>
+
+    <div class="tasks">
+      <h2><span class="emoji">📝</span> التمارين</h2>
+      <pre>
+تمرين 1: غير الرسالة في السطر 1 لتقول "Hello in Guessing Game!"
+تمرين 2: غير الرقم السري ليكون 5.
+تمرين 3: غير النص في إدخال اللاعب ليكون "Enter a number:"
+تمرين 4: أضف شرط إذا الرقم أكبر من 10 يطبع "Out of range"
+تمرين 5: غير رسالة الفوز لتقول "Great job! You won!"
+تمرين 6: أضف بعد شرط الرقم الأكبر طباعة "Try a smaller number"
+      </pre>
+
+      <h2><span class="emoji">✅</span> الحلول</h2>
+      <pre>
+print("Hello in Guessing Game!")
+secret_number = 5
+guess = int(input("Enter a number: "))
+if guess > 10:
+    print("Out of range")
+print("Great job! You won!")
+print("Try a smaller number")
+      </pre>
+    </div>
+
+    <div class="final-code">
+      <h2><span class="emoji">🎮</span> الكود النهائي</h2>
+      <pre>
+secret_number = 7
+
+guess = prompt("Guess a number between 1 and 10:")
+
+if (parseInt(guess) === secret_number) {
+    alert("🎉 Wow! You guessed it right!");
+} else if (parseInt(guess) > secret_number) {
+    alert("Too high! Try a smaller number.");
+} else {
+    alert("Too low! Try a bigger number.");
+}
+      </pre>
+      <button onclick="playGame()"><span class="emoji">🎯</span> العب اللعبة الآن <span class="emoji">🎮</span></button>
+      <script>
+        function playGame() {
+          const secret_number = Math.floor(Math.random() * 10) + 1;
+          let attempts = 0;
+          let maxAttempts = 3;
+          
+          alert("🎮 مرحباً بك في لعبة التخمين! لديك " + maxAttempts + " محاولات لتخمين رقم بين 1 و 10");
+          
+          while (attempts < maxAttempts) {
+            let guess = prompt("المحاولة " + (attempts + 1) + " من " + maxAttempts + "\nخمن رقماً بين 1 و 10:");
+            
+            if (guess === null) {
+              alert("🚪 تم إلغاء اللعبة. شكراً لك!");
+              return;
+            }
+            
+            guess = parseInt(guess);
+            attempts++;
+            
+            if (isNaN(guess) || guess < 1 || guess > 10) {
+              alert("❌ يرجى إدخال رقم صحيح بين 1 و 10");
+              attempts--; // لا نحسب هذه محاولة
+              continue;
+            }
+            
+            if (guess === secret_number) {
+              alert("🎉 رائع! لقد خمنت الرقم الصحيح " + secret_number + " في " + attempts + " محاولة/محاولات!\n🏆 أنت بطل!");
+              return;
+            } else if (guess > secret_number) {
+              if (attempts < maxAttempts) {
+                alert("⬇️ الرقم كبير جداً! جرب رقماً أصغر.\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+              }
+            } else {
+              if (attempts < maxAttempts) {
+                alert("⬆️ الرقم صغير جداً! جرب رقماً أكبر.\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+              }
+            }
+          }
+          
+          alert("😔 انتهت محاولاتك! الرقم السري كان " + secret_number + "\n🔄 جرب مرة أخرى!");
+        }
+        
+        // إضافة تأثيرات التمرير
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('scroll-animate');
+            }
+          });
+        }, observerOptions);
+        
+        document.querySelectorAll('.line, .task, .solution').forEach(el => {
+          observer.observe(el);
+        });
+      </script>
+    </div>
+  </div>
+</body>
+</html>
