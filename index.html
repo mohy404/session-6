@@ -322,7 +322,7 @@
       <p>هنا هنشرح الكود خطوة خطوة أولاً، وبعدها في قسم منفصل هنضع كل التمارين والحلول، وفي الآخر هتشوف الكود النهائي وتقدر تلعب اللعبة بنفسك! <span class="emoji">🚀</span></p>
     </div>
 
-    <h3><span class="emoji"></span> الكود الأصلي</h3>
+    <h3><span class="emoji">💻</span> الكود الأصلي</h3>
     <pre>print("🎯 Welcome to the Guessing Game!")
 secret_number = 7
 
@@ -381,57 +381,130 @@ else:
     </div>
 
     <div class="tasks">
-      <h2><span class="emoji">📝</span> التمارين</h2>
-      <pre>
-تمرين 1: غير الرسالة في السطر 1 لتقول "Hello in Guessing Game!"
-تمرين 2: غير الرقم السري ليكون 5.
-تمرين 3: غير النص في إدخال اللاعب ليكون "Enter a number:"
-تمرين 4: أضف شرط إذا الرقم أكبر من 10 يطبع "Out of range"
-تمرين 5: غير رسالة الفوز لتقول "Great job! You won!"
-تمرين 6: أضف بعد شرط الرقم الأكبر طباعة "Try a smaller number"
-      </pre>
+      <h2><span class="emoji">📝</span> التمارين لكل طالب</h2>
+      
+      <div class="task">
+        <h3><span class="emoji">👨‍💻</span> تاسك رودي</h3>
+        <p><strong>اتبع نفس خطوات الكود الأصلي ولكن غير الآتي:</strong></p>
+        <ul style="text-align: right; padding-right: 20px;">
+          <li>رسالة الترحيب: "🚀 Welcome to Rody's Amazing Number Game!"</li>
+          <li>الرقم السري: 3</li>
+          <li>رسالة إدخال الرقم: "Pick your lucky number (1-10): "</li>
+          <li>رسالة الفوز: "🎊 Fantastic! You're a number wizard!"</li>
+          <li>رسالة الرقم الكبير: "Oops! That's too big!"</li>
+          <li>رسالة الرقم الصغير: "Nope! That's too small!"</li>
+        </ul>
+      </div>
+
+      <div class="task">
+        <h3><span class="emoji">👩‍💻</span> تاسك هنا</h3>
+        <p><strong>اتبع نفس خطوات الكود الأصلي ولكن غير الآتي:</strong></p>
+        <ul style="text-align: right; padding-right: 20px;">
+          <li>رسالة الترحيب: "✨ Welcome to Hana's Magic Number Challenge!"</li>
+          <li>الرقم السري: 8</li>
+          <li>رسالة إدخال الرقم: "What's your magical number (1-10)? "</li>
+          <li>رسالة الفوز: "🌟 Brilliant! You found the magic number!"</li>
+          <li>رسالة الرقم الكبير: "Too high! Try going lower!"</li>
+          <li>رسالة الرقم الصغير: "Too low! Try going higher!"</li>
+        </ul>
+      </div>
+
+      <div class="task">
+        <h3><span class="emoji">👦</span> تاسك يوسف</h3>
+        <p><strong>اتبع نفس خطوات الكود الأصلي ولكن غير الآتي:</strong></p>
+        <ul style="text-align: right; padding-right: 20px;">
+          <li>رسالة الترحيب: "🎮 Welcome to Youssef's Super Guessing Game!"</li>
+          <li>الرقم السري: 5</li>
+          <li>رسالة إدخال الرقم: "Enter your best guess (1-10): "</li>
+          <li>رسالة الفوز: "🏆 Amazing! You're the guessing champion!"</li>
+          <li>رسالة الرقم الكبير: "Whoa! That's too big, try smaller!"</li>
+          <li>رسالة الرقم الصغير: "Nah! That's too small, try bigger!"</li>
+        </ul>
+      </div>
 
       <h2><span class="emoji">✅</span> الحلول</h2>
-      <pre>
-print("Hello in Guessing Game!")
+      
+      <div class="solution">
+        <h4><span class="emoji">👨‍💻</span> حل رودي:</h4>
+        <pre>
+print("🚀 Welcome to Rody's Amazing Number Game!")
+secret_number = 3
+
+guess = int(input("Pick your lucky number (1-10): "))
+
+if guess == secret_number:
+    print("🎊 Fantastic! You're a number wizard!")
+elif guess > secret_number:
+    print("Oops! That's too big!")
+else:
+    print("Nope! That's too small!")
+        </pre>
+      </div>
+
+      <div class="solution">
+        <h4><span class="emoji">👩‍💻</span> حل هنا:</h4>
+        <pre>
+print("✨ Welcome to Hana's Magic Number Challenge!")
+secret_number = 8
+
+guess = int(input("What's your magical number (1-10)? "))
+
+if guess == secret_number:
+    print("🌟 Brilliant! You found the magic number!")
+elif guess > secret_number:
+    print("Too high! Try going lower!")
+else:
+    print("Too low! Try going higher!")
+        </pre>
+      </div>
+
+      <div class="solution">
+        <h4><span class="emoji">👦</span> حل يوسف:</h4>
+        <pre>
+print("🎮 Welcome to Youssef's Super Guessing Game!")
 secret_number = 5
-guess = int(input("Enter a number: "))
-if guess > 10:
-    print("Out of range")
-print("Great job! You won!")
-print("Try a smaller number")
-      </pre>
+
+guess = int(input("Enter your best guess (1-10): "))
+
+if guess == secret_number:
+    print("🏆 Amazing! You're the guessing champion!")
+elif guess > secret_number:
+    print("Whoa! That's too big, try smaller!")
+else:
+    print("Nah! That's too small, try bigger!")
+        </pre>
+      </div>
     </div>
 
     <div class="final-code">
-      <h2><span class="emoji">🎮</span> الكود النهائي</h2>
-      <pre>
-secret_number = 7
+      <h2><span class="emoji">🎮</span> الكود التفاعلي - اختر نسختك المفضلة!</h2>
+      
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
+        <button onclick="playRodyGame()" style="background: linear-gradient(135deg, #e67e22, #d35400);">
+          <span class="emoji">🚀</span> العب مع رودي <span class="emoji">👨‍💻</span>
+        </button>
+        <button onclick="playHanaGame()" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+          <span class="emoji">✨</span> العب مع هنا <span class="emoji">👩‍💻</span>
+        </button>
+        <button onclick="playYoussefGame()" style="background: linear-gradient(135deg, #27ae60, #229954);">
+          <span class="emoji">🎮</span> العب مع يوسف <span class="emoji">👦</span>
+        </button>
+      </div>
 
-guess = prompt("Guess a number between 1 and 10:")
-
-if (parseInt(guess) === secret_number) {
-    alert("🎉 Wow! You guessed it right!");
-} else if (parseInt(guess) > secret_number) {
-    alert("Too high! Try a smaller number.");
-} else {
-    alert("Too low! Try a bigger number.");
-}
-      </pre>
-      <button onclick="playGame()"><span class="emoji">🎯</span> العب اللعبة الآن <span class="emoji">🎮</span></button>
+      
       <script>
-        function playGame() {
-          const secret_number = Math.floor(Math.random() * 10) + 1;
+        function playRodyGame() {
+          const secret_number = 3;
           let attempts = 0;
           let maxAttempts = 3;
           
-          alert("🎮 مرحباً بك في لعبة التخمين! لديك " + maxAttempts + " محاولات لتخمين رقم بين 1 و 10");
+          alert("🚀 مرحباً! هذه لعبة رودي! لديك " + maxAttempts + " محاولات");
           
           while (attempts < maxAttempts) {
-            let guess = prompt("المحاولة " + (attempts + 1) + " من " + maxAttempts + "\nخمن رقماً بين 1 و 10:");
+            let guess = prompt("🚀 Pick your lucky number (1-10): \nالمحاولة " + (attempts + 1) + " من " + maxAttempts);
             
             if (guess === null) {
-              alert("🚪 تم إلغاء اللعبة. شكراً لك!");
+              alert("🚪 شكراً لك على اللعب مع رودي!");
               return;
             }
             
@@ -440,25 +513,107 @@ if (parseInt(guess) === secret_number) {
             
             if (isNaN(guess) || guess < 1 || guess > 10) {
               alert("❌ يرجى إدخال رقم صحيح بين 1 و 10");
-              attempts--; // لا نحسب هذه محاولة
+              attempts--;
               continue;
             }
             
             if (guess === secret_number) {
-              alert("🎉 رائع! لقد خمنت الرقم الصحيح " + secret_number + " في " + attempts + " محاولة/محاولات!\n🏆 أنت بطل!");
+              alert("🎊 Fantastic! You're a number wizard!\nرودي يقول: رائع جداً!");
               return;
             } else if (guess > secret_number) {
               if (attempts < maxAttempts) {
-                alert("⬇️ الرقم كبير جداً! جرب رقماً أصغر.\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+                alert("Oops! That's too big!\nالمحاولات المتبقية: " + (maxAttempts - attempts));
               }
             } else {
               if (attempts < maxAttempts) {
-                alert("⬆️ الرقم صغير جداً! جرب رقماً أكبر.\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+                alert("Nope! That's too small!\nالمحاولات المتبقية: " + (maxAttempts - attempts));
               }
             }
           }
           
-          alert("😔 انتهت محاولاتك! الرقم السري كان " + secret_number + "\n🔄 جرب مرة أخرى!");
+          alert("😔 انتهت محاولاتك! الرقم السري كان " + secret_number + "\nرودي يقول: حاول مرة أخرى!");
+        }
+        
+        function playHanaGame() {
+          const secret_number = 8;
+          let attempts = 0;
+          let maxAttempts = 3;
+          
+          alert("✨ مرحباً! هذه لعبة هنا السحرية! لديك " + maxAttempts + " محاولات");
+          
+          while (attempts < maxAttempts) {
+            let guess = prompt("✨ What's your magical number (1-10)? \nالمحاولة " + (attempts + 1) + " من " + maxAttempts);
+            
+            if (guess === null) {
+              alert("🚪 شكراً لك على اللعب مع هنا!");
+              return;
+            }
+            
+            guess = parseInt(guess);
+            attempts++;
+            
+            if (isNaN(guess) || guess < 1 || guess > 10) {
+              alert("❌ يرجى إدخال رقم صحيح بين 1 و 10");
+              attempts--;
+              continue;
+            }
+            
+            if (guess === secret_number) {
+              alert("🌟 Brilliant! You found the magic number!\nهنا تقول: أنت ساحر الأرقام!");
+              return;
+            } else if (guess > secret_number) {
+              if (attempts < maxAttempts) {
+                alert("Too high! Try going lower!\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+              }
+            } else {
+              if (attempts < maxAttempts) {
+                alert("Too low! Try going higher!\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+              }
+            }
+          }
+          
+          alert("😔 انتهت محاولاتك! الرقم السحري كان " + secret_number + "\nهنا تقول: حاول مرة أخرى!");
+        }
+        
+        function playYoussefGame() {
+          const secret_number = 5;
+          let attempts = 0;
+          let maxAttempts = 3;
+          
+          alert("🎮 مرحباً! هذه لعبة يوسف الخارقة! لديك " + maxAttempts + " محاولات");
+          
+          while (attempts < maxAttempts) {
+            let guess = prompt("🎮 Enter your best guess (1-10): \nالمحاولة " + (attempts + 1) + " من " + maxAttempts);
+            
+            if (guess === null) {
+              alert("🚪 شكراً لك على اللعب مع يوسف!");
+              return;
+            }
+            
+            guess = parseInt(guess);
+            attempts++;
+            
+            if (isNaN(guess) || guess < 1 || guess > 10) {
+              alert("❌ يرجى إدخال رقم صحيح بين 1 و 10");
+              attempts--;
+              continue;
+            }
+            
+            if (guess === secret_number) {
+              alert("🏆 Amazing! You're the guessing champion!\nيوسف يقول: أنت بطل التخمين!");
+              return;
+            } else if (guess > secret_number) {
+              if (attempts < maxAttempts) {
+                alert("Whoa! That's too big, try smaller!\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+              }
+            } else {
+              if (attempts < maxAttempts) {
+                alert("Nah! That's too small, try bigger!\nالمحاولات المتبقية: " + (maxAttempts - attempts));
+              }
+            }
+          }
+          
+          alert("😔 انتهت محاولاتك! الرقم السري كان " + secret_number + "\nيوسف يقول: حاول مرة أخرى!");
         }
         
         // إضافة تأثيرات التمرير
